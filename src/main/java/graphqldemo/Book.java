@@ -4,6 +4,7 @@ import io.micronaut.core.annotation.Introspected;
 
 @Introspected
 public class Book {
+
   private final String id;
   private final String name;
   private final int pageCount;

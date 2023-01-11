@@ -15,8 +15,11 @@ public class GraphQLDataFetchers {
   public DataFetcher<Book> getBookByIdDataFetcher() {
     return dataFetchingEnvironment -> {
       String bookId = dataFetchingEnvironment.getArgument("id");
-      return dbRepository.findAllBooks().stream().filter(book -> book.getId().equals(bookId))
-          .findFirst().orElse(null);
+      return dbRepository.findAllBooks()
+          .stream()
+          .filter(book -> book.getId().equals(bookId))
+          .findFirst()
+          .orElse(null);
     };
   }
 
@@ -24,8 +27,12 @@ public class GraphQLDataFetchers {
     return dataFetchingEnvironment -> {
       Book book = dataFetchingEnvironment.getSource();
       Author authorBook = book.getAuthor();
-      return dbRepository.findAllAuthors().stream()
-          .filter(author -> author.getId().equals(authorBook.getId())).findFirst().orElse(null);
+      return dbRepository.findAllAuthors()
+          .stream()
+          .filter(author -> author.getId().equals(authorBook.getId()))
+          .findFirst()
+          .orElse(null);
     };
   }
+
 }

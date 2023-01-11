@@ -9,7 +9,6 @@ public class Author {
   private final String firstName;
   private final String lastName;
 
-
   public Author(String id, String firstName, String lastName) {
     this.id = id;
     this.firstName = firstName;
